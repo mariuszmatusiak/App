@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariuszmatusiak/ciTest.git"
+    "url": "git+https://github.com/mariuszmatusiak/App.git"
   },
   "author": "Mariusz Matusiak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mariuszmatusiak/app/issues"
+    "url": "https://github.com/mariuszmatusiak/App/issues"
   },
-  "homepage": "https://github.com/mariuszmatusiak/app#readme",
+  "homepage": "https://github.com/mariuszmatusiak/App#readme",
   "dependencies": {
     "async": "^0.7.0",
     "aws-sdk": "^2.2.25",
