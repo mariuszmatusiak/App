@@ -10,7 +10,6 @@ AWS.config.loadFromPath(AWS_CONFIG_FILE);
 //var listen = require("./digest").action
 //var file = require("./file").action
 
-
 var PORT = 8080;
 
 var urlMap = [
