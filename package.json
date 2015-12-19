@@ -1,0 +1,28 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariuszmatusiak/ciTest.git"
+  },
+  "author": "Mariusz Matusiak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariuszmatusiak/app/issues"
+  },
+  "homepage": "https://github.com/mariuszmatusiak/app#readme",
+  "dependencies": {
+    "async": "^0.7.0",
+    "aws-sdk": "^2.2.25",
+    "express": "~3.4.8",
+    "webs-weeia": "^0.2.2"
+  }
+}

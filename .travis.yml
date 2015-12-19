@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '0.10'
+before_install: npm install -g mocha
+deploy:
+  provider: s3
+  access_key_id: AKIAJGJ7TS3KP6YWZZDQ
+  secret_access_key:
+    secure: LiMduHRRe9VBe3xjgTfOhrVSCE54SqHkrtrPn0zJMYVDKkBkSIpmOn8nia3+vT/aEi1X2HBe7aWTECYuH+m3ltQwLom+RD1zYcwXaauFKroZOubqmKcg96M0CAhEGDbUBW3QOJ+s1wTz7PooDAqGlQOjX6+ezpUeJ4moeb1ziYjlL89T5ZBufeJZLGw0ep8ud2QomyY0VDjS2/YgO/t1BJtg+miwr3NPFfhfnnidRcT0lYgtxYhmFrhW03kdhxtKXPlxI+QgSW3Qj7gomttRfFTacBs36w1lGUEh4xBn5hySQ3TzQD86JB0V5lnXoh3Q96hUC/VXpupN4u9iOOLJWPa/d44HqyXxKiVUBXte2+XOHvSWgirZgVTpmpCXwPj96l83bPzHOLpSoG377KY3aAM5R/+zNPalWBculEqBK+YlEmyrHIHjtyfQLT+UWpnai6Pk7z9Cl6TvfFNPPgPU+U3lk23zzrADtrtL1cULxrMrvPllWZuzP2WbV1bt+8YSa+JZTaljmAwmKvhm3eIdE9tBfVPqarx6XSj1kF14n5PQj1g4ac3It/f6sQnx1/2i33CNaFGz41XubhsCwnN4DUEr0hJu3q8ziSZOtRilzJVbnF5Z/osRx6Y+kzSx8nTjRVXucOhj1CWmmlHz37vvsIDnzdQnDr0DVNyqwkgin4A=
+  bucket: deploy-weeia
+  upload-dir: matusiak
+  acl: private
+  on:
+    repo: mariuszmatusiak/ciTest
