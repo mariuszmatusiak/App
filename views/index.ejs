@@ -43,3 +43,57 @@
 	</div>		
 	</body>
 </html>
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+</head>
+<body>
+    <nav class="navbar">
+
+    </nav>
+    <div class="container">
+        <section id="section1" class="panel panel-default">
+
+            <div class="panel-body">
+				<div class="container ">
+					<div class="control-group col-xs-8">
+						<textarea type="text" class="form-control" placeholder="enter text" name="txt" rows="3"> </textarea>
+                    </div>
+                </div>
+                <form action="https://mariusz.matusiak.s3.amazonaws.com/" method="POST" id="sign-up-form" class="form-horizontal" enctype="multipart/form-data">
+
+                    <div class="container">
+					<% fields.forEach(function(elem){ %>
+					  <input type="hidden" name="<%= elem.name  %>" value="<%=elem.value %>"/>
+						<%}); %> 
+                        <div class="col-xs-3">
+                            <div class="form-group">
+                                
+								<!--<input type="hidden" name="key" value="${filename}"/>
+								<input type="hidden" name="success_action_redirect" value="/"/>
+								<input type="hidden" name="x-amz-algorithm" value="AWS4-HMAC-SHA256"/>
+								<input type="hidden" name="x-amz-credential" value="AKIAJGJ7TS3KP6YWZZDQ/20151228/us-west-2/s3/aws4_request"/>
+								<input type="hidden" name="x-amz-date" value="201551227T000000Z"/>
+								<input type="hidden" name="x-amz-signature" value=""/>
+								<input type="hidden" name="x-amz-meta-ip" value=""/>-->
+								<input type="file" value="File" name="file" id="my-file"/ accept="image/*"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="col-xs-3">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Send" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <footer class="panel-footer"></footer>
+        </section>
+    </div>
+    <footer class="navbar"></footer>
+</body>
+</html>-->
