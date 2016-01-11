@@ -1,9 +1,11 @@
 //var helpers = require("./helpers");
 var AWS = require("aws-sdk");
 var AWS_CONFIG_FILE = "./config.json";
-var ACTION = require('./actions/action.js');
+//var ACTION = require('./actions/action.js');
 var http = require('http');
 var fs = require('fs');
+var async = require('async');
+var sendFile = require("./actions/action").action;
 
 AWS.config.loadFromPath(AWS_CONFIG_FILE);
 
@@ -13,12 +15,12 @@ AWS.config.loadFromPath(AWS_CONFIG_FILE);
 var PORT = 8080;
 
 var urlMap = [
-	{path: "/", action: __dirname + "/index.html"}	 
-	//{path: "/file", action: file},	
+    { path: "/", action: sendFile },
+    { path: "/upload", action: sendFile }
 	];
 
 function request(req, resp){
-    console.log("user request" + req.url);
+    //console.log("user request" + req.url);
     if (req.method == 'GET' && req.url == '/') {
         fs.readFile(__dirname + "/index.html", function (err, data) {
             resp.writeHead(200, { "Context-Type": "text/html" });
@@ -32,6 +34,6 @@ function request(req, resp){
     }
 }
 //http.createServer(request).listen(8888);
-var service = require("./lib/service").http(urlMap);
+var service = require('webs-weeia').http(urlMap);
 service(PORT);
 

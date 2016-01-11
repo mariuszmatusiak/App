@@ -16,16 +16,22 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="config.json" />
     <Content Include="index.html" />
     <Content Include="package.json" />
+    <Content Include="policy.json" />
     <Content Include="README.md" />
     <Compile Include="actions\action.js" />
+    <Compile Include="actions\helpers.js" />
+    <Compile Include="actions\s3post.js" />
     <Compile Include="app.js" />
     <Compile Include="discount.js" />
     <Compile Include="test\test.js" />
+    <Content Include="views\index.ejs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="actions\" />
+    <Folder Include="views\" />
     <Folder Include="test" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
