@@ -13,6 +13,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>app</Name>
+    <NodejsPort>2500</NodejsPort>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -22,16 +23,22 @@
     <Content Include="package.json" />
     <Content Include="policy.json" />
     <Content Include="README.md" />
+    <Compile Include="actions\dl.js" />
+    <Compile Include="actions\browse.js" />
     <Compile Include="actions\action.js" />
     <Compile Include="actions\helpers.js" />
     <Compile Include="actions\s3post.js" />
+    <Compile Include="actions\upload.js" />
     <Compile Include="app.js" />
     <Compile Include="discount.js" />
     <Compile Include="test\test.js" />
+    <Content Include="views\file.ejs" />
+    <Content Include="views\list.ejs" />
     <Content Include="views\index.ejs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="actions\" />
+    <Folder Include="public\" />
     <Folder Include="views\" />
     <Folder Include="test" />
   </ItemGroup>

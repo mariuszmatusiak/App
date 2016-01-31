@@ -8,12 +8,23 @@ var fs = require('fs');
 var AWS_CFG_FILE =  "./config.json";
 var POLICY_FILE = "./policy.json";
 var INDEX = "./index.ejs";
-
+var queueUrl = "https://sqs.us-west-2.amazonaws.com/983680736795/matusiakSQS";
 
 var task = function (request, callback) {
     var s3 = new AWS.S3();
     var ip1 = request.headers['x-forwarded-for'] || request.connection.remoteAddress || request.socket.remoteAddress || request.connection.socket.remoteAddress;
-    //var file = document.getElementById("file");
+    if (typeof request.query.key != 'undefined') {
+        var params = {
+            MessageBody: request.query.key,
+            QueueUrl: queueUrl
+
+        };
+        var sqs = new AWS.SQS();
+        sqs.sendMessage(params, function (err, data) {
+            if (err) console.log(err, err.stack);
+            else console.log(data);
+        });
+    }
     console.log(ip1);
     var ip;
     ip = external(function (err, ip) {
@@ -28,7 +39,7 @@ var task = function (request, callback) {
                 ["starts-with", "$key", "files/" + ip1 + "/"],
                 { acl: "private" },
                 { bucket: "mariusz.matusiak" },
-                { "success_action_redirect": ip + ":8080/upload" },
+                { "success_action_redirect": "http://localhost" + ":8080/upload" },
                 { "x-amz-meta-ip": ip1 },
                 ["content-length-range", 0, 10485760]
             ]
@@ -52,7 +63,8 @@ var task = function (request, callback) {
 
             }
         );
-        callback(null, { template: INDEX, params: { fields: fields } })
+        //callback(null, { template: INDEX, params: { fields: fields } })
+        callback.render(INDEX,  fields );
     })
 };
 

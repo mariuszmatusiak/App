@@ -29,3 +29,4 @@ config.json
 .ntvs_analysis.dat
 obj
 bin
+Worker
