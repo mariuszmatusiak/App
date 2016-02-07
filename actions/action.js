@@ -7,7 +7,7 @@ var async = require('async');
 var fs = require('fs');
 var AWS_CFG_FILE =  "./config.json";
 var POLICY_FILE = "./policy.json";
-var INDEX = "./index.ejs";
+var INDEX = "index";
 var queueUrl = "https://sqs.us-west-2.amazonaws.com/983680736795/matusiakSQS";
 
 var task = function (request, callback) {
