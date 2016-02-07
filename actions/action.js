@@ -64,7 +64,7 @@ var task = function (request, callback) {
             }
         );
         //callback(null, { template: INDEX, params: { fields: fields } })
-        callback.render(INDEX,  fields );
+        callback.render(INDEX);
     })
 };
 
