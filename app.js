@@ -12,7 +12,7 @@ var browseFiles = require('./actions/browse.js').browse;
 var downloadFile = require('./actions/dl.js').download;
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
-AWS.config.loadFromPath(AWS_CONFIG_FILE);
+AWS.config.update({ region: 'us-west-2' });
 
 //var listen = require("./digest").action
 //var file = require("./file").action

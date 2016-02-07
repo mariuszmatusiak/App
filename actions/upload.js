@@ -8,7 +8,7 @@ var fs = require('fs');
 var queueUrl = "https://sqs.us-west-2.amazonaws.com/983680736795/matusiakSQS";
 var bucket = "mariusz.matusiak";
 
-aws.config.loadFromPath(AWS_CFG_FILE);
+aws.config.update({ region: 'us-west-2' });
 
 var upload = function (request, callback){
     var s3 = new aws.S3();

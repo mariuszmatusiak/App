@@ -27,6 +27,8 @@ var task = function (request, callback) {
     }
     console.log(ip1);
     var ip;
+    console.log(process.env.AWS_ACCESS_KEY_ID);
+    console.log(process.env.AWS_SECRET_ACCESS_KEY);
     ip = external(function (err, ip) {
         console.log(ip);
         
