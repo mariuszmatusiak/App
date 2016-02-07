@@ -27,12 +27,10 @@ var task = function (request, callback) {
     }
     console.log(ip1);
     var ip;
-    console.log(process.env.AWS_ACCESS_KEY_ID);
-    console.log(process.env.AWS_SECRET_ACCESS_KEY);
     ip = external(function (err, ip) {
         console.log(ip);
         
-        var awsCfg = helpers.readJSONFile(AWS_CFG_FILE);
+        //var awsCfg = helpers.readJSONFile(AWS_CFG_FILE);
         var awsPolicy = {
             expiration: {
                 day: 1
@@ -47,9 +45,9 @@ var task = function (request, callback) {
             ]
         }
         var policy = new Policy(awsPolicy);
-        var s3Form = new S3Form(policy);
-        var fields = s3Form.generateS3FormFields();
-        s3Form.addS3CredientalsFields(fields, awsCfg);
+        //var s3Form = new S3Form(policy);
+        //var fields = s3Form.generateS3FormFields();
+        //s3Form.addS3CredientalsFields(fields, awsCfg);
         var count = 0;
         async.whilst(
             function () { return true },
