@@ -6,7 +6,7 @@ var fs = require('fs');
 var async = require('async');
 var express = require('express');
 var app = express();
-var sendFile = require("./actions/action").action;
+var sendfile = require("./actions/action").action;
 var uploadFile = require('./actions/upload').upload;
 var browseFiles = require('./actions/browse.js').browse;
 var downloadFile = require('./actions/dl.js').download;
@@ -24,20 +24,24 @@ app.use(express.static(__dirname + '/public'));
 
 var PORT = 8080;
 
+
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + '/views/index.html');
+});
+app.post("/uploadFile", upload.single('file'), uploadFile);
+app.get("/files", browseFiles);
+app.get("/download", downloadFile);
+
 var server = app.listen(PORT, function () {
     var host = server.address().address;
     var port = server.address().port;
     console.log("App started on: " + host + ":" + port);
 });
 
-app.get("/", sendFile);
-app.post("/uploadFile", upload.single('file'), uploadFile);
-app.get("/files", browseFiles);
-app.get("/download", downloadFile);
 
 var urlMap = [
-    { path: "/", action: sendFile },
-    { path: "/upload", action: sendFile },
+    { path: "/", action: sendfile },
+    { path: "/upload", action: sendfile },
     { path: "/uploadfile", action: uploadFile }
 	];
 

@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+	</head>
+	<body>
+	<script type="text/javascript">
+	function onResizeChange(){
+	var range = document.getElementById("resize").value;
+	var output = document.getElementById("rangeoutput");
+	output.innerHTML = range + "";
+	}
+	function onRotateChange(){
+	var range = document.getElementById("rotate").value;
+	var output = document.getElementById("rotateoutput");
+	output.innerHTML = range + "";
+	}
+	function onBlurChange(){
+	var range = document.getElementById("blurvalue").value;
+	var output = document.getElementById("bluroutput");
+	output.innerHTML = range + "";
+	}
+	</script>
+		<nav class="navbar">	
+		</nav>
+		<div class="container">
+		<section id="section1" class="panel panel-default">
+			<div class="panel-heading">
+			<div class="container">
+	    		<h3 class="panel-title">POSTing a file to Amazon S3</h3>
+			</div>
+		  	</div>
+	  		<div class="panel-body">
+				<form action="/uploadFile" method="POST" id="sign-up-form" class="form-horizontal" enctype="multipart/form-data">
+					<div class="container">
+						<div class="col-xs-3">
+							<input type="file" name="file" accept="image/*" />
+						</div><br><br>
+						<input type="checkbox" name="resize" value="Resize"> Resize
+						<input type="range" name="resizerange" id="resize" min="0" max="10" step="0.1" onchange="onResizeChange()">
+						<div id="rangeoutput"></div>
+						<br>
+						<!--<input type="checkbox" name="edit" value="Scale">Scale-->
+						<input type="checkbox" name="rotate" value="Rotate"> Rotate
+						<input type="range" name="rotaterange" id="rotate" min="0" max="360" step="1" onchange="onRotateChange()">
+						<div id="rotateoutput"></div>
+						<br>
+						<input type="checkbox" name="blur" value="Blur"> Blur
+						<input type="range" name="blurvalue" id="blurvalue" min="0" max="10" step="1" onchange="onBlurChange()">
+						<div id="bluroutput"></div>
+						<br>
+						<br>
+						<input type="checkbox" name="flip" value="Flip"> Flip<br>
+						<input type="radio" name="flipdir" value="x"  checked> Horizontally<br>
+						<input type="radio" name="flipdir" value="y"> Vertically<br>
+						<input type="radio" name="flipdir" value="xy"> Both<br>
+						<br>
+						Email<br>
+						<input type="text" name="email"><br>
+				</div>
+				<div class="container">
+				<div class="col-xs-3">
+					<input type="submit" class="btn  btn-primary btn-block" value="Confirm"/>
+				</div>
+				</div>
+			</form>
+			</div>
+			<footer class="panel-footer">
+			<a href="/files">Browse files</a>
+			</footer>
+		</section>
+	</div>		
+	</body>
+</html>
+
+

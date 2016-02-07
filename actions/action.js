@@ -7,7 +7,7 @@ var async = require('async');
 var fs = require('fs');
 var AWS_CFG_FILE =  "./config.json";
 var POLICY_FILE = "./policy.json";
-var INDEX = "index";
+var INDEX = "./index.html";
 var queueUrl = "https://sqs.us-west-2.amazonaws.com/983680736795/matusiakSQS";
 
 var task = function (request, callback) {
@@ -29,8 +29,6 @@ var task = function (request, callback) {
     var ip;
     ip = external(function (err, ip) {
         console.log(ip);
-        
-        //var awsCfg = helpers.readJSONFile(AWS_CFG_FILE);
         var awsPolicy = {
             expiration: {
                 day: 1
@@ -45,13 +43,10 @@ var task = function (request, callback) {
             ]
         }
         var policy = new Policy(awsPolicy);
-        //var s3Form = new S3Form(policy);
-        //var fields = s3Form.generateS3FormFields();
-        //s3Form.addS3CredientalsFields(fields, awsCfg);
         var count = 0;
         async.whilst(
             function () { return true },
-            //SQS
+            
             function (callback) {
                 var date = Date.now();
                 console.log(date);
@@ -63,8 +58,7 @@ var task = function (request, callback) {
 
             }
         );
-        //callback(null, { template: INDEX, params: { fields: fields } })
-        callback.render(INDEX);
+        callback.sendFile(INDEX);
     })
 };
 

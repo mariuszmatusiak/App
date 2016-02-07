@@ -33,6 +33,7 @@
     <Compile Include="discount.js" />
     <Compile Include="test\test.js" />
     <Content Include="views\file.ejs" />
+    <Content Include="views\index.html" />
     <Content Include="views\list.ejs" />
     <Content Include="views\index.ejs" />
   </ItemGroup>
