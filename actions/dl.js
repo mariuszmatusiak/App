@@ -27,7 +27,7 @@ var task = function (request, callback) {
         else {
             var pos = key.lastIndexOf("/");
             var path = key.substring(pos + 1);
-            fs.writeFileSync('public/images/' + path, data.Body);
+            fs.writeFileSync(dirname + '/../public/images/' + path, data.Body);
             callback.render(FILE, {
                 file: path
             });
