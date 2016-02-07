@@ -14,8 +14,7 @@ var upload = function (request, callback){
     var s3 = new aws.S3();
     var sqs = new aws.SQS();
     var senderip = request.ip;  
-    console.log(senderip);
-        var awsCfg = helpers.readJSONFile(AWS_CFG_FILE);        
+    console.log(senderip);   
         var uploadParams = {
             ACL: "private",
             Bucket: bucket,
