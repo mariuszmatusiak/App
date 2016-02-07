@@ -16,7 +16,9 @@ AWS.config.update({ region: 'us-west-2' });
 
 //var listen = require("./digest").action
 //var file = require("./file").action
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
 var publicdir = __dirname + '/public';
 app.use(express.static(__dirname + '/public'));
 
