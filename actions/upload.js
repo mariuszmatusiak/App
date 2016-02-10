@@ -22,19 +22,23 @@ var upload = function (request, callback){
             Body: fs.readFileSync(request.file.path)
         };
         s3.putObject(uploadParams, function (err, data) {
-            if (err) console.log(err +": " +  err.stack);
-        else console.log(data);
-        var settings = request.body;
-        settings['file'] = uploadParams['Key'];
-        var params ={
-           MessageBody: JSON.stringify(settings),
-           QueueUrl: queueUrl
-        };
-        sqs.sendMessage(params, function (err, data) {
-            if (err) console.log(err + ": " + err.stack);
-            else console.log(data);
-            callback.send("File uploaded");
-        });
+        if (err) callback.send(err + ": " + err.stack);
+        else {
+            console.log(data);
+            var settings = request.body;
+            settings['file'] = uploadParams['Key'];
+            var params = {
+                MessageBody: JSON.stringify(settings),
+                QueueUrl: queueUrl
+            };
+            sqs.sendMessage(params, function (err, data) {
+                if (err) callback.send(err + ": " + err.stack);
+                else {
+                    console.log(data);
+                    callback.send("File uploaded");
+                }
+            });
+        }
     });
 }
 

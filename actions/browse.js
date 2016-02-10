@@ -22,7 +22,7 @@ var task = function (request, callback) {
         Prefix: "files/" + senderip
     };
     s3.listObjects(params, function (err, data) {
-        if (err) console.log(err);
+        if (err) callback.send(err);
         else {
             var images = data;
             callback.render(LIST, {
