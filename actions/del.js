@@ -5,8 +5,6 @@ var S3Form = require('./s3post').S3Form;
 var external = require('externalip');
 var async = require('async');
 var fs = require('fs');
-var AWS_CFG_FILE =  "./config.json";
-var POLICY_FILE = "./policy.json";
 var queueUrl = "https://sqs.us-west-2.amazonaws.com/983680736795/matusiakSQS";
 var bucket = "mariusz.matusiak";
 var ejs = require('ejs');
@@ -16,7 +14,6 @@ aws.config.update({ region: 'us-west-2' });
 var task = function (request, callback) {
     var s3 = new aws.S3();
     var key = request.query.file;
-    //var senderip = request.headers['x-forwarded-for'] || request.connection.remoteAddress || request.socket.remoteAddress || request.connection.socket.remoteAddress;
     var params = {
         Bucket: bucket,
         Key: key

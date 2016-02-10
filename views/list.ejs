@@ -18,7 +18,7 @@
 	  		<div class="panel-body">
 				<ul>
 				<% for(var i=0; i<Contents.length; i++) {%>
-				<li><a href="/download?file=<%= Contents[i].Key %>"><%= Contents[i].Key %></a></li>
+				<li><a href="/download?file=<%= Contents[i].Key %>"><%= Contents[i].Key %></a>  <a href="/delete?file=<%= Contents[i].Key %>">delete</a></li>
 				<% } %>
 				</ul>
 
