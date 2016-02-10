@@ -10,7 +10,6 @@ var sendfile = require("./actions/action").action;
 var uploadFile = require('./actions/upload').upload;
 var browseFiles = require('./actions/browse.js').browse;
 var downloadFile = require('./actions/dl.js').download;
-var deleteFile = require('./actions/del.js').delete;
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
 AWS.config.update({ region: 'us-west-2' });
@@ -32,7 +31,6 @@ app.get("/", function (req, res) {
 app.post("/uploadFile", upload.single('file'), uploadFile);
 app.get("/files", browseFiles);
 app.get("/download", downloadFile);
-app.get("/delete", deleteFile);
 
 var server = app.listen(PORT, function () {
     var host = server.address().address;

@@ -23,7 +23,6 @@
     <Content Include="package.json" />
     <Content Include="policy.json" />
     <Content Include="README.md" />
-    <Compile Include="actions\del.js" />
     <Compile Include="actions\dl.js" />
     <Compile Include="actions\browse.js" />
     <Compile Include="actions\action.js" />
