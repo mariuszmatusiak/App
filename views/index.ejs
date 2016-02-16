@@ -21,55 +21,34 @@
 	output.innerHTML = range + "";
 	}
 	</script>
-		<nav class="navbar">
-			
+		<nav class="navbar">	
 		</nav>
 		<div class="container">
 		<section id="section1" class="panel panel-default">
-
 			<div class="panel-heading">
 			<div class="container">
-	    		<h3 class="panel-title">POSTing a file to Amazon S3</h3>
-	    		</div>
+	    		<h3 class="panel-title">Graphics editor</h3>
+			</div>
 		  	</div>
 	  		<div class="panel-body">
-				
-	  <form action="/uploadFile" method="POST" id="sign-up-form" class="form-horizontal" enctype="multipart/form-data">
-		<div class="container">
-	<div class="col-xs-3">
-	<input type="file" name="file" accept="image/*" />
-	</div><br><br>
-	<input type="checkbox" name="resize" value="Resize"> Resize
-	<input type="range" name="resizerange" id="resize" min="0" max="10" step="0.1" onchange="onResizeChange()">
-	<div id="rangeoutput"></div>
-	<br>
-	<!--<input type="checkbox" name="edit" value="Scale">Scale-->
-	<input type="checkbox" name="rotate" value="Rotate"> Rotate
-	<input type="range" name="rotaterange" id="rotate" min="0" max="360" step="1" onchange="onRotateChange()">
-	<div id="rotateoutput"></div>
-	<br>
-	<input type="checkbox" name="blur" value="Blur"> Blur
-	<input type="range" name="blurvalue" id="blurvalue" min="0" max="10" step="1" onchange="onBlurChange()">
-	<div id="bluroutput"></div>
-	<br>
-	<br>
-	<input type="checkbox" name="flip" value="Flip"> Flip<br>
-	<input type="radio" name="flipdir" value="x"  checked> Horizontally<br>
-	<input type="radio" name="flipdir" value="y"> Vertically<br>
-	<input type="radio" name="flipdir" value="xy"> Both<br>
-	<br>
-	Email<br>
-	<input type="text" name="email"><br>
-
-	</div>
-	<div class="container">
-	<div class="col-xs-3">
-	<input type="submit" class="btn  btn-primary btn-block" value="Confirm"/>
-	</div>
-	</div>
-</form>
+				<form action="http://mariusz.matusiak.s3.amazonaws.com/" method="POST" id="sign-up-form" class="form-horizontal" enctype="multipart/form-data">
+					<div class="container">
+						<div class="col-xs-3">
+						<% for(var i=0; i<fields.length; i++){%>
+						<input type="hidden" name="<%=fields[i].name %>" value="<%=fields[i].value %>" />
+						<% } %>
+							<input type="file" name="file" accept="image/*" />
+						</div><br><br>
+					</div>
+				<div class="container">
+				<div class="col-xs-3">
+					<input type="submit" class="btn  btn-primary btn-block" value="Confirm"/>
+				</div>
+				</div>
+				</form>
+			</div>
 			<footer class="panel-footer">
-<a href="/files">Browse files</a>
+			<a href="/files">Browse files</a>
 			</footer>
 		</section>
 	</div>		

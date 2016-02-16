@@ -1,12 +1,11 @@
 {	"expiration" : {"day":1},
-	"conditions": [ ["starts-with", "$key", "files/" + ip1 + "/"],
+	"conditions": [ ["starts-with", "$key", "mm/"],
     				 {"bucket": "mariusz.matusiak"}, 
     				 {"acl": "private"},
-    				 {"success_action_redirect": ip + ":8080/upload"},
+    				 {"success_action_redirect": "http://localhost:8081"},
 					 {"x-amz-meta-firstname": "Mariusz"},
 					 {"x-amz-meta-lastname": "Matusiak"},
 					 {"x-amz-meta-device": "DarthPC"},
-					 {"x-amz-meta-ip": ip1},
-    				 ["content-length-range", 0, 10485760]
+    				 ["content-length-range", 0, 1048576]
     				]   
 }
