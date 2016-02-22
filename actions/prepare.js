@@ -6,7 +6,6 @@ var external = require('externalip');
 var async = require('async');
 var fs = require('fs');
 var AWS_CFG_FILE =  "./config.json";
-var POLICY_FILE = "./policy.json";
 var INDEX = "./up.ejs";
 var queueUrl = "https://sqs.us-west-2.amazonaws.com/983680736795/matusiakSQS";
 
@@ -25,12 +24,12 @@ var task = function (request, callback) {
                 ["starts-with", "$key", "files/" + ip1 + "/"],
                 { acl: "private" },
                 { bucket: "mariusz.matusiak" },
-                { "success_action_redirect": "http://localhost" + ":8080/" },
+                { "success_action_redirect": "http://mmatusiakELB-791613050.us-west-2.elb.amazonaws.com"  },
                 { "x-amz-meta-ip": ip1 },
                 ["content-length-range", 0, 10485760]
             ]
     }
-    var awsPolicy2 = helpers.readJSONFile(POLICY_FILE);
+    //var awsPolicy2 = helpers.readJSONFile(POLICY_FILE);
     var policy = new Policy(awsPolicy);
     //var policy2 = new Policy(awsPolicy2);
     var formparams = new S3Form(policy);
