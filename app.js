@@ -31,7 +31,7 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 app.get("/upload", sendForm);
-app.post("/uploadFile", upload.single('file'), uploadFile);
+app.post("/process", upload.single('file'), uploadFile);
 app.get("/files", browseFiles);
 app.get("/download", downloadFile);
 app.get("/delete", deleteFile);
