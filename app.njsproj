@@ -23,7 +23,7 @@
     <Content Include="JSON1.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Compile Include="actions\.js" />
+    <Compile Include="actions\prepare.js" />
     <Compile Include="actions\del.js" />
     <Compile Include="actions\dl.js" />
     <Compile Include="actions\browse.js" />
@@ -37,7 +37,7 @@
     <Content Include="views\file.ejs" />
     <Content Include="views\index.html" />
     <Content Include="views\list.ejs" />
-    <Content Include="views\index.ejs" />
+    <Content Include="views\up.ejs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="actions\" />

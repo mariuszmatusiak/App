@@ -11,7 +11,7 @@ var uploadFile = require('./actions/upload').upload;
 var browseFiles = require('./actions/browse.js').browse;
 var downloadFile = require('./actions/dl.js').download;
 var deleteFile = require('./actions/del.js').delete;
-var sendForm = require('./actions/.js').action;
+var sendForm = require('./actions/prepare.js').action;
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
 AWS.config.update({ region: 'us-west-2' });
