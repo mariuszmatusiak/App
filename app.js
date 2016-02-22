@@ -27,10 +27,10 @@ app.use(express.static(__dirname + '/public'));
 var PORT = 8080;
 
 
-//app.get("/", function (req, res) {
-//    res.sendFile(__dirname + '/views/index.html');
-//});
-app.get("/", sendForm);
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + '/views/index.html');
+});
+app.get("/upload", sendForm);
 app.post("/uploadFile", upload.single('file'), uploadFile);
 app.get("/files", browseFiles);
 app.get("/download", downloadFile);
